@@ -6,13 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * the login page class provides all login page element
- * and it`s avaliable methods
+ * The {@code LoginPage} class provides all Login page elements
+ * and available methods
  *
- * @author: irina
- * @version: 1.0
+ * @author nikitam
+ * @version 1.0
  */
-
 public class LoginPage {
 
     WebDriver driver;
@@ -20,11 +19,11 @@ public class LoginPage {
     @FindBy(id = "user-name")
     private WebElement usernameField;
 
-    @FindBy(id = "password")
+    @FindBy(name = "password")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//input{@data-test='login-button']")
-    private WebElement LoginButton;
+    @FindBy(xpath = "//input[@data-test='login-button']")
+    private WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -40,19 +39,14 @@ public class LoginPage {
     }
 
     public WebElement getLoginButton() {
-        return LoginButton;
-    }
-
-    public WebDriver getDriver() {
-        return driver;
+        return loginButton;
     }
 
     /**
      * Authorize user by name and password
-     * @param username valid or invalid username for web page
-     * @param password valid or invalid password for web page
+     * @param username valid or invalid username for WEB page
+     * @param password valid or invalid password for WEB page
      */
-
     public void authorize(String username, String password) {
         getUsernameField().sendKeys(username);
         getPasswordField().sendKeys(password);
